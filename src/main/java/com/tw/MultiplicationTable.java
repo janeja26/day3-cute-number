@@ -7,13 +7,12 @@ public class MultiplicationTable {
         if (valid) {
             return generateTable(start, end);
         }
-
         return null;
     }
 
     private Boolean isValid(int start, int end) {
 
-        return null;
+        return isInRange(start)&&isInRange(end)&&isStartNotBiggerThanEnd(start, end);
     }
 
     private Boolean isInRange(int number) {
@@ -23,20 +22,31 @@ public class MultiplicationTable {
 
     private Boolean isStartNotBiggerThanEnd(int start, int end) {
 
-        return start<=end;
+        return start <= end;
     }
 
     private String generateTable(int start, int end) {
 
-        return null;
+        StringBuilder table = new StringBuilder();
+        for (int row = start; row <= end; row++) {
+            table.append(generateLine(start, row)).append("\n");
+        }
+        return table.toString();
+
     }
 
     private String generateLine(int start, int row) {
-        return generateExpression(start, row);
+
+        StringBuilder line = new StringBuilder();
+        for (int col = start; col <= row; col++) {
+            line.append(generateExpression(col, row)).append("  ");
+        }
+        return line.toString();
+
     }
 
     private String generateExpression(int multiplicand, int multiplier) {
 
-        return multiplicand+"*"+multiplier+"*"+"=" + multiplicand*multiplier;
+        return multiplicand + "*" + multiplier + "*" + "=" + multiplicand * multiplier;
     }
 }
