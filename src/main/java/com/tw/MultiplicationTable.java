@@ -32,7 +32,7 @@ public class MultiplicationTable {
     }
 
     private String generateLine(int start, int row) {
-        return null;
+        return generateExpression(start, row);
     }
 
     private String generateExpression(int multiplicand, int multiplier) {
